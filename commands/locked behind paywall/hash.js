@@ -8,7 +8,7 @@ module.exports = {
 	name: 'hash',
 	aliases:['sha256'],
 	run: async (client, message, args) => {
-		const { sha256 } = require('../../random.js');
+		const { sha256 } = require('../../functions.js');
 		if (!args[0]) {return message.channel.send('you need some arguments!');}
 		message.channel.send(`sha256: ${sha256(args.join(' '))}`);
 	} };

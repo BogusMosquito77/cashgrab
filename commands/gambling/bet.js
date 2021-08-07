@@ -40,7 +40,7 @@ module.exports = {
 		}
 		//
 		// rest of code
-		const { randomRange } = require('../../random.js');
+		const { randomRange } = require('../../functions.js');
 		const balanceSchema = require('../../schemas/balanceSchema');
 		const data = await balanceSchema.findOne({ UserID: message.author.id });
 		const botroll = randomRange(1, 12);

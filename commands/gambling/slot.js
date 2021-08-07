@@ -43,7 +43,7 @@ module.exports = {
 		//
 		// rest of code
 		const rekewords = ['rewards', 'reward', 'table'];
-		const { randomRange, randomArray } = require('../../random.js');
+		const { randomRange, randomArray } = require('../../functions.js');
 		const balanceSchema = require('../../schemas/balanceSchema');
 		const data = await balanceSchema.findOne({ UserID: message.author.id });
 		const bet = args[0];

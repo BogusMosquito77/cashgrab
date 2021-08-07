@@ -36,7 +36,7 @@ module.exports = {
 		}
 		//
 		// rest of code
-		const { randomRange } = require('../../random.js');
+		const { randomRange } = require('../../functions.js');
 		const howgay = randomRange(0, 100);
 
 		if (message.mentions.members.first()) {

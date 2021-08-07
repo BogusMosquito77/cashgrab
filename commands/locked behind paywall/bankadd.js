@@ -21,7 +21,7 @@ module.exports = {
 			let userid;
 			if (!message.mentions.members.first() && args[1]) {userid = args[1];}
 			else {userid = user.id;}
-			const { addbank } = require('../../random.js');
+			const { addbank } = require('../../functions.js');
 
 			const balanceSchema = require('../../schemas/balanceSchema');
 			const data = await balanceSchema.findOne({ UserID: userid });
