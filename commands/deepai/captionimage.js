@@ -9,7 +9,7 @@ module.exports = {
 	run: async (client, message, args) => {
 		if (!message.attachments.first()) {return message.channel.send('You need an image!');}
 		if (!message.attachments.first().width) {return message.channel.send('You need an image!');}
-		deepai.setApiKey('f9286878-3290-48d6-90b5-5a057277faf4');
+		deepai.setApiKey(process.env.deepaikey);
 		(async function() {
 			var resp = await deepai.callStandardApi("neuraltalk", {
 				image: message.attachments.first().proxyURL,

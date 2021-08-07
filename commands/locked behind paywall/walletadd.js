@@ -19,14 +19,13 @@ module.exports = {
 		else {
 			const user = message.mentions.members.first() || message.author;
 			let userid;
-			if (args[1] != message.mentions.members.first() && args[1]) {userid = args[1];}
+			if (!message.mentions.members.first() && args[1]) {userid = args[1];}
 			else {userid = user.id;}
+			const { addwallet } = require('../../random.js');
+
 			const balanceSchema = require('../../schemas/balanceSchema');
 			const data = await balanceSchema.findOne({ UserID: userid });
-			const query = { UserID: user.id };
-			const update = { $inc: { wallet: args[0] } };
-			const options = { 'new': true, 'useFindAndModify' : false };
-			balanceSchema.findOneAndUpdate(query, update, options, function(err, doc) {});
+			addwallet(args[0], userid);
 			data.save();
 			message.channel.send(`I added ${args[0].toLocaleString()} coins to ${client.users.cache.get(userid).username}'s wallet`);
 		}

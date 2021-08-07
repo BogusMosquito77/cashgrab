@@ -14,7 +14,7 @@ require('dotenv').config({ path: __dirname + '/.env' });
 // mongo here?
 
 const mongoAtlasUri =
-  'mongodb+srv://BogusMosquito77:kibo2007@cluster0.u1me0.mongodb.net/cashgrab?retryWrites=true&w=majority';
+  process.env.mongoconnectionurl;
 
 try {
 	// Connect to the MongoDB cluster
