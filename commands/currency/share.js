@@ -10,7 +10,7 @@ module.exports = {
 	aliases:['pay'],
 	run: async (client, message, args) => {
 		// mongodb stuff
-		const { addwallet } = require('../../random.js');
+		const { addwallet } = require('../../functions.js');
 		const user = message.mentions.members.first() || message.author;
 		let userid;
 		if (!message.mentions.members.first() && args[0]) {userid = args[0];}
