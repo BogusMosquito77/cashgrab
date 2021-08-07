@@ -1,3 +1,0 @@
-token="bot_token"
-mongoconnectionurl="mongo-connection-url"
-deepaikey="deep-ai-api-key"
