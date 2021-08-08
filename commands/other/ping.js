@@ -5,7 +5,10 @@ module.exports = {
 	// eslint-disable-next-line no-unused-vars
 	run: async (client, message, args) => {
 		const start = Date.now();
-		message.channel.send({ embed: { description: '🏓pinging...', color: 0x00FFFF } }).then(m => {
+		const embed1 = new MessageEmbed()
+			.setDescription('🏓pinging...')
+			.setColor('0x00FFFF');
+		message.channel.send({ embeds: [embed1] }).then(m => {
 			const end = Date.now();
 			// define embed
 			const embed = new MessageEmbed()
