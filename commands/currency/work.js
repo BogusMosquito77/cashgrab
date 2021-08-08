@@ -6,7 +6,7 @@ module.exports = {
 	run: async (client, message, args) => {
 		// mongodb stuff
 		const { addwallet } = require('../../functions.js');
-		const jobs = ['gar', 'fac', 'dri', 'fas', 'coo', 'cas'];
+		const jobs = ['gar', 'fac', 'dri', 'fas', 'coo', 'cas', 'bus', 'dev'];
 		/* gar = garbage man, fac = factory worker, dri = driver, fas = fast food worker,
-		coo = cook, cas = cashier */
+		coo = cook, cas = cashier, bus = bus driver, dev = developer */
 	} };
