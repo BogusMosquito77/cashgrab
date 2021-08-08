@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 
@@ -8,7 +9,9 @@ const disbut = require('discord-buttons');
 // eslint-disable-next-line no-unused-vars
 const { config } = require('dotenv');
 const fs = require('fs');
-const client = new Client({ disableMentions: 'everyone', ws: { properties: { $browser: 'STREAMING' }, intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_PRESENCES'] } });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS], allowedMentions: { parse: ['users', 'roles'], repliedUser: true } });
+client.user.setPresence({ activities: [{ name: 'with money' }] });
+
 disbut(client);
 require('dotenv').config({ path: __dirname + '/.env' });
 // mongo here?
@@ -46,7 +49,7 @@ client.on('ready', () => {
 	console.log('ready!');
 	client.user.setActivity(' ' + client.users.cache.size + ' Users and ' + client.guilds.cache.size + ' Servers', { type: 'WATCHING' });
 });
-client.on('message', async message => {
+client.on('messageCreate', async message => {
 	const prefixSchema = require('./schemas/prefixSchema');
 	const prefixData = await prefixSchema.findOne({ GuildID: message.guild.id,
 	});
@@ -87,7 +90,7 @@ client.on('message', async message => {
 		});
 	});
 });
-client.on('message', async message => {
+client.on('messageCreate', async message => {
 	if (message.author.bot) return;
 	const settingsSchema = require('./schemas/settingsSchema');
 	const settings = await settingsSchema.findOne({ UserID: message.author.id });

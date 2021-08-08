@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 module.exports = {
@@ -9,13 +10,13 @@ module.exports = {
 		const prefixData = await prefixSchema.findOne({ GuildID: message.guild.id,
 		});
 		if(!args[0]) {return message.channel.send('uhhh.. prefix please?');}
-		if (message.member.hasPermission('MANAGE_GUILD', 'ADMINISTRATOR') && args[0] === prefixData.prefix) {
+		if (message.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD, Permissions.FLAGS.ADMINISTRATOR) && args[0] === prefixData.prefix) {
 			const same = new MessageEmbed()
 				.setTitle('invalid prefix')
 				.setDescription('the prefix you entered is the same as your previous prefix!');
 			message.channel.send({ embeds: [same] });
 		}
-		else if(message.member.hasPermission('MANAGE_GUILD', 'ADMINISTRATOR')) {
+		else if(message.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD, Permissions.FLAGS.ADMINISTRATOR)) {
 			prefixData.prefix = args[0];
 			prefixData.save();
 			const done = new MessageEmbed()
