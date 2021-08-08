@@ -3,16 +3,11 @@
 const mongoose = require('mongoose');
 
 // eslint-disable-next-line no-unused-vars
-const { Client, Collection, Message, MessageEmbed } = require('discord.js');
-const disbut = require('discord-buttons');
-
+const { Client, Collection, Message, MessageEmbed, Intents } = require('discord.js');
 // eslint-disable-next-line no-unused-vars
 const { config } = require('dotenv');
 const fs = require('fs');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS], allowedMentions: { parse: ['users', 'roles'], repliedUser: true } });
-client.user.setPresence({ activities: [{ name: 'with money' }] });
-
-disbut(client);
 require('dotenv').config({ path: __dirname + '/.env' });
 // mongo here?
 
