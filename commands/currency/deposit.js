@@ -35,7 +35,7 @@ module.exports = {
 					.setTitle('Succesful!')
 					.setDescription('you deposited all your coins to your bank.')
 					.setColor('1207d6');
-				message.channel.send(yes);
+				message.channel.send({ embeds: [yes] });
 			}
 			else if (data.wallet < args[0]) {
 				message.channel.send('Dude,you don\'t have enough money to deposit.');
@@ -56,7 +56,7 @@ module.exports = {
 					.setTitle('Succesful!')
 					.setDescription(`you deposited ${args[0]} coins to your bank.`)
 					.setColor('1207d6');
-				message.channel.send(yes);
+				message.channel.send({ embeds: [yes] });
 			}
 
 

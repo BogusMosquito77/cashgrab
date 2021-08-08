@@ -60,7 +60,7 @@ module.exports = {
 				.setTitle('lost!')
 				.setDescription(`Amount lost: ${bet} coins\n\n${message.author.username} rolled: ${userroll}\n cashgrab rolled: ${botroll}`)
 				.setColor('#FF0000');
-			message.channel.send(loseembed);
+			message.channel.send({ embeds: [loseembed] });
 			const query = { UserID: message.author.id };
 			const update = { $inc: { wallet: -bet } };
 			const options = { 'new': true, 'useFindAndModify' : false };
@@ -73,7 +73,7 @@ module.exports = {
 				.setTitle('tied!')
 				.setDescription(`You tied and still have ${bet} coins!\n\n${message.author.username} rolled: ${userroll}\n cashgrab rolled: ${botroll}`)
 				.setColor('#FFBD33');
-			message.channel.send(tieembed);
+			message.channel.send({ embeds: [tieembed] });
 			return;
 		}
 		const variablenameidk = randomRange(0, 100);
@@ -94,7 +94,7 @@ module.exports = {
 			.setTitle('won!')
 			.setDescription(`Amount won: ${Math.floor(winning)} coins\n\nPercent won: ${winningpercent}\n${message.author.username} rolled: ${userroll}\n cashgrab rolled: ${botroll}`)
 			.setColor('#75FF33');
-		message.channel.send(winembed);
+		message.channel.send({ embeds: [winembed] });
 		const query = { UserID: message.author.id };
 		const update = { $inc: { wallet: Math.floor(winning) } };
 		const options = { 'new': true, 'useFindAndModify' : false };

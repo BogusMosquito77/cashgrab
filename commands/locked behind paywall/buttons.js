@@ -10,7 +10,7 @@ module.exports = {
 			const ahhdamn = new MessageEmbed()
 				.setTitle('You can\'t run this')
 				.setDescription('You aren\'t the developer dude, sorry.');
-			message.channel.send(ahhdamn);
+			message.channel.send({ embeds: [ahhdamn] });
 			return;
 		}
 		else{

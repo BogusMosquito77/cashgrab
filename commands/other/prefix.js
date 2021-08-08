@@ -13,7 +13,7 @@ module.exports = {
 			const same = new MessageEmbed()
 				.setTitle('invalid prefix')
 				.setDescription('the prefix you entered is the same as your previous prefix!');
-			message.channel.send(same);
+			message.channel.send({ embeds: [same] });
 		}
 		else if(message.member.hasPermission('MANAGE_GUILD', 'ADMINISTRATOR')) {
 			prefixData.prefix = args[0];
@@ -22,12 +22,12 @@ module.exports = {
 				.setTitle('Prefix was changed.')
 				.setDescription(`${message.author.username} changed the prefix to: ${prefixData.prefix}`)
 				.setColor('1207d6');
-			message.channel.send(done);
+			message.channel.send({ embeds: [done] });
 		}
 		else {
 			const permsnone = new MessageEmbed()
 				.setTitle('not enough permissions!')
 				.setDescription('you don\'t have enough permissions to change the prefix!');
-			message.channel.send(permsnone);
+			message.channel.send({ embeds: [permsnone] });
 		}
 	} };

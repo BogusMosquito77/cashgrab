@@ -13,7 +13,7 @@ module.exports = {
 				.addField('<a:birbdance:839897463053746186>fun:', '*all fun commands!*', true)
 				.setFooter('do &help *category* to see the correct category')
 				.setColor('1207d6');
-			message.channel.send(helpembed);
+			message.channel.send({ embeds: [helpembed] });
 		}
 
 		else if (!correctargs.includes(args[0])) {
@@ -23,7 +23,7 @@ module.exports = {
 				.addField('<a:birbdance:839897463053746186>fun:', '*all fun commands!*', true)
 				.setFooter('do &help *category* to see the correct category (you probably made a typo)')
 				.setColor('1207d6');
-			message.channel.send(helpembed);
+			message.channel.send({ embeds: [helpembed] });
 		}
 		else {
 			switch (args[0].toLowerCase()) {
@@ -36,7 +36,7 @@ module.exports = {
 						.addField('withdraw:', '*withdraws money to your bank*', true)
 						.setFooter('your mode is "normal"')
 						.setColor('1207d6');
-					message.channel.send(currencyhelpembed);
+					message.channel.send({ embeds: [currencyhelpembed] });
 				}
 				else {
 					const currencyhelpembed = new MessageEmbed()
@@ -46,7 +46,7 @@ module.exports = {
 						.addField('withdraw:', '*withdraws money to your bank*', true)
 						.setFooter('your mode is "crypto"')
 						.setColor('1207d6');
-					message.channel.send(currencyhelpembed);
+					message.channel.send({ embeds: [currencyhelpembed] });
 				}
 				break;
 			case 'fun':
@@ -55,7 +55,7 @@ module.exports = {
 					.setAuthor('fun help', 'https://cdn.discordapp.com/avatars/818046402193653781/a1e90da5bd34634e9e32782a575eb3a8.png?size=128')
 					.addField('howgay:', '*shows how gay someone is in % (only for fun, no real values)*', true)
 					.setColor('1207d6');
-				message.channel.send(funhelpembed);
+				message.channel.send({ embeds: [funhelpembed] });
 				break;
 			default:
 				break;

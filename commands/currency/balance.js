@@ -30,7 +30,7 @@ module.exports = {
 				.setTitle(`${client.users.cache.get(userid).username}'s balance`)
 				.setDescription(`**wallet:** ${wallet.toLocaleString()} coins.\n **bank:** ${bank.toLocaleString()} coins.\n **total:** ${plus.toLocaleString()} coins.`)
 				.setColor('1207d6');
-			message.channel.send(balanceembed);
+			message.channel.send({ embeds: [balanceembed] });
 		}
 		else {
 			const newdata = new balanceSchema({
@@ -49,6 +49,6 @@ module.exports = {
 				.setTitle(`${client.users.cache.get(user.id).username}'s balance`)
 				.setDescription('wallet: no coins.\n bank: no coins.\n So in total: no coins. Get some coins will you?')
 				.setColor('1207d6');
-			message.channel.send(balanceembed);
+			message.channel.send({ embeds: [balanceembed] });
 		}
 	} };

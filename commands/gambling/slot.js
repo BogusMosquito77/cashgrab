@@ -55,7 +55,7 @@ module.exports = {
                 :moneybag: :moneybag: :moneybag:: 100x bet\n:trophy: :trophy: :trophy::50x bet\n:money_mouth: :money_mouth: :money_mouth:: 25x bet\n:dollar: :dollar: :dollar:: 10x bet\n:diamond_shape_with_a_dot_inside: :diamond_shape_with_a_dot_inside:: 5x bet.\n\
                 <a:CoinPixelsSpinning:839896513743290378> <a:CoinPixelsSpinning:839896513743290378>: 5x bet \n:moneybag: :moneybag:: 5x bet\n:dollar: :dollar:: 4x bet\n<:ye:825408089599639552> <:ye:825408089599639552>: 3x bet\n:neutral_face: :neutral_face:: 2x bet\n\
                 :flushed: :flushed:: 1x bet');
-			message.channel.send(embed);
+			message.channel.send({ embeds: [embed] });
 			return;
 		}
 		if (bet < 50) {message.channel.send('You must bet over 50 coins!'); return;}
@@ -132,7 +132,7 @@ module.exports = {
 				.setTitle('lost!')
 				.setDescription(`[${randomemote1 + randomemote2 + randomemote3}]\n\nAmount lost: ${bet} coins`)
 				.setColor('#FF0000');
-			message.channel.send(loseembed);
+			message.channel.send({ embeds: [loseembed] });
 			const query = { UserID: message.author.id };
 			const update = { $inc: { wallet: -bet } };
 			const options = { 'new': true, 'useFindAndModify' : false };
@@ -155,7 +155,7 @@ module.exports = {
 			.setTitle('won!')
 			.setDescription(`[${randomemote1 + randomemote2 + randomemote3}]\n\nMulti: ${multi}x\nAmount won: ${winning} coins`)
 			.setColor('#75FF33');
-		message.channel.send(winembed);
+		message.channel.send({ embeds: [winembed] });
 		const query = { UserID: message.author.id };
 		const update = { $inc: { wallet: winning } };
 		const options = { 'new': true, 'useFindAndModify' : false };

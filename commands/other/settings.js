@@ -15,7 +15,7 @@ module.exports = {
 				const allsets = new MessageEmbed()
 					.setTitle(`${message.author.username}'s settings`)
 					.setDescription(`mode:**${settings.mode}**  (normal or crypto)\n***no other settings yet!***`);
-				message.channel.send(allsets);
+				message.channel.send({ embeds: [allsets] });
 			}
 			else {
 				switch (args[0]) {

@@ -17,6 +17,6 @@ module.exports = {
 				.addField('Message Latency', end - start + 'ms', true)
 				.setColor(0x00FFFF);
 			// editing msg and if err send the err
-			m.edit(embed).catch(e => message.channel.send(e));
+			m.edit({ embeds: [embed] }).catch(e => message.channel.send(e));
 		});
 	} };

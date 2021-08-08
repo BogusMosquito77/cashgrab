@@ -38,7 +38,7 @@ module.exports = {
 						.setTitle('Succesful!')
 						.setDescription('you withdrawed all coins.')
 						.setColor('1207d6');
-					message.channel.send(yes);
+					message.channel.send({ embeds: [yes] });
 				}
 				else if (data.bank < args[0]) {
 					message.channel.send(`Dude, yes you,${message.author.username}, you don't have enough money to withdraw.`);
@@ -59,7 +59,7 @@ module.exports = {
 						.setTitle('Succesful!')
 						.setDescription(`you withdrawed ${args[0]} coins.`)
 						.setColor('1207d6');
-					message.channel.send(yes);
+					message.channel.send({ embeds: [yes] });
 				}
 			}
 			else {
@@ -79,7 +79,7 @@ module.exports = {
 						.setTitle('Succesful!')
 						.setDescription('you withdrawed all coins.')
 						.setColor('1207d6');
-					message.channel.send(yes);
+					message.channel.send({ embeds: [yes] });
 				}
 				else if (data.bank < args[0]) {
 					message.channel.send(`Dude, yes you,${message.author.username}, you don't have enough money to withdraw.`);
@@ -100,7 +100,7 @@ module.exports = {
 						.setTitle('Succesful!')
 						.setDescription(`you withdrawed ${args[0]} coins.`)
 						.setColor('1207d6');
-					message.channel.send(yes);
+					message.channel.send({ embeds: [yes] });
 				}
 			}
 

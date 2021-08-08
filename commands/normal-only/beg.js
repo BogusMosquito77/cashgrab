@@ -70,7 +70,7 @@ module.exports = {
 		const yes = new MessageEmbed()
 			.setTitle('Succesful!')
 			.setDescription(`${message.author} got ${amount} coins while begging!`);
-		message.channel.send(yes);
+		message.channel.send({ embeds: [yes] });
 		// after code
 		if (cooldowndata.OwnerCooldown == 'false') {
 			cooldowndata.beg = 0;

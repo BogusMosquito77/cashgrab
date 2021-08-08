@@ -45,7 +45,7 @@ module.exports = {
 				.setTitle(`How gay is ${user}?`)
 				.setDescription(`${user} is ${howgay}% gay`)
 				.setColor('RANDOM');
-			message.channel.send(pingbed);
+			message.channel.send({ embeds: [pingbed] });
 		}
 		else if (args[0]) {
 			const user = Util.cleanContent(args.join(' '), message);
@@ -53,7 +53,7 @@ module.exports = {
 				.setTitle(`How gay is ${user}?`)
 				.setDescription(`${user} is ${howgay}% gay`)
 				.setColor('RANDOM');
-			message.channel.send(argsbed);
+			message.channel.send({ embeds: [argsbed] });
 
 		}
 		else {
@@ -62,7 +62,7 @@ module.exports = {
 				.setTitle(`How gay is ${user}?`)
 				.setDescription(`${user} is ${howgay}% gay`)
 				.setColor('RANDOM');
-			message.channel.send(userbed);
+			message.channel.send({ embeds: [userbed] });
 		}
 		// after code
 		cooldowndata.howgay = Date.now();
