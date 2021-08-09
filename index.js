@@ -70,7 +70,7 @@ client.on('messageCreate', async message => {
 	let command = client.commands.get(cmd);
 	if (!command) command = client.commands.get(client.aliases.get(cmd));
 
-	if (command) {command.run(client, message, args);}
+	if (command) {command.run(client, message, args, prefix);}
 
 	let messages;
 
@@ -93,6 +93,18 @@ client.on('messageCreate', async message => {
 	const cooldownSchema = require('./schemas/cooldownSchema');
 	const cooldowndata = await cooldownSchema.findOne({ UserID: message.author.id });
 	const balancedata = await balanceSchema.findOne({ UserID: message.author.id });
+	const jobSchema = require('./schemas/jobSchema');
+	const jobdata = await jobSchema.findOne({ UserID: message.author.id });
+	if (!jobdata) {
+		const newjobdata = new jobSchema({
+			job: 'unemployed',
+			salary: '0',
+			hours: '0',
+			UserID: message.author.id,
+		});
+		newjobdata.save();
+	}
+
 	if (!settings) {
 		const newdata = new settingsSchema({
 			mode: 'normal',

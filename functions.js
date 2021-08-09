@@ -6,8 +6,8 @@ module.exports = {
 	randomRange: function randomRange(min, max) {
 		return Math.floor(Math.random() * (max - min) + min);
 	},
-	randomArray: function randomArray(var_name) {
-		return (var_name[Math.floor(Math.random() * var_name.length)]);
+	randomArray: function randomArray(varname) {
+		return (varname[Math.floor(Math.random() * varname.length)]);
 	},
 	addwallet: function addwallet(amount, userid) {
 		const balanceSchema = require('./schemas/balanceSchema');

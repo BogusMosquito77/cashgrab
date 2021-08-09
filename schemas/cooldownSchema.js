@@ -6,6 +6,7 @@ const Schema = new mongoose.Schema({
 	bet: Number,
 	slot: Number,
 	blackjack: Number,
+	work: Number,
 	OwnerCooldown: String,
 	UserID: String,
 });
