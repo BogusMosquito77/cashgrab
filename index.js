@@ -99,7 +99,10 @@ client.on('messageCreate', async message => {
 		const newjobdata = new jobSchema({
 			job: 'unemployed',
 			salary: '0',
-			hours: '0',
+			hours: 0,
+			money: 0,
+			cooldown: 0,
+			newjobcooldown: 0,
 			UserID: message.author.id,
 		});
 		newjobdata.save();
